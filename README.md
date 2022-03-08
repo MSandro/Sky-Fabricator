@@ -1,8 +1,6 @@
-# Sky-Fabricator
+# Sky Fabricator (Fabric)
 a small Minecraft 1.18 Fabric Mod with some usefull tools for modded skyblock
 
-
-# Sky Fabricator (Fabric)
 * hammers, crush dirt to find pebbles and sapplings, stone/cobble to gravel, gravel to sand, sand to clay, charcoal block gives 8 charcoal and may drop diamond nugget
 * Wooden Cauldron to collect water
 * kiln to melt cobblestone into lava (16 cobble), fuel is charcoal/coal blocks
