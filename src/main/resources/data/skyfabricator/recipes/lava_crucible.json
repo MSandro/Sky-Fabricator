@@ -1,0 +1,13 @@
+{
+  "type": "skyfabricator:kiln",
+  "inputs": [
+    {
+      "item": "minecraft:cobblestone",
+      "count": 16
+    }
+  ],
+  "output": {
+    "id": "skyfabricator:lava_crucible",
+    "count": 1
+  }
+}

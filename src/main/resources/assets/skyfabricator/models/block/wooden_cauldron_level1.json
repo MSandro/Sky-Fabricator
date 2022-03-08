@@ -1,0 +1,11 @@
+{
+  "parent": "skyfabricator:block/template_cauldron_level0point25",
+  "textures": {
+    "content": "skyfabricator:block/water_still",
+    "inside": "skyfabricator:block/cauldron_inner",
+    "particle": "skyfabricator:block/cauldron_side",
+    "top": "skyfabricator:block/cauldron_top",
+    "bottom": "skyfabricator:block/cauldron_bottom",
+    "side": "skyfabricator:block/cauldron_side"
+  }
+}

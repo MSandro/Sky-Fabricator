@@ -1,0 +1,19 @@
+{
+  "item.skyfabricator.wooden_hammer": "Wooden Hammer",
+  "item.skyfabricator.stone_hammer": "Stone Hammer",
+  "item.skyfabricator.iron_hammer": "Iron Hammer",
+  "item.skyfabricator.diamond_hammer": "Diamond Hammer",
+  "item.skyfabricator.netherite_hammer": "Netherite Hammer",
+  "item.skyfabricator.woodchips": "Wood Chips",
+  "item.skyfabricator.pebble": "Pebble",
+  "item.skyfabricator.crucible": "Crucible",
+  "item.skyfabricator.water_crucible": "Water Crucible",
+  "item.skyfabricator.lava_crucible": "Lava Crucible",
+  "item.skyfabricator.diamond_nugget": "Diamond nugget",
+  "item.skyfabricator.raw_crucible": "Raw Crucible",
+  "item.skyfabricator.charcoal_block": "Charcoal Block",
+  "item.skyfabricator.kiln": "Kiln",
+  "block.skyfabricator.kiln": "Kiln",
+  "block.skyfabricator.charcoal_block": "Charcoal Block",
+  "block.skyfabricator.wooden_cauldron": "Wooden Cauldron"
+}

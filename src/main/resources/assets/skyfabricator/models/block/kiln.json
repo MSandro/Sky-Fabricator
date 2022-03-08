@@ -1,0 +1,8 @@
+{
+    "parent": "block/orientable",
+    "textures": {
+        "front": "skyfabricator:block/kiln_front",
+        "side": "skyfabricator:block/kiln_side",
+        "top": "skyfabricator:block/kiln_side"
+    }
+}

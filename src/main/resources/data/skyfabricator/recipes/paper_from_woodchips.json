@@ -1,0 +1,18 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "skyfabricator:woodchips"
+        },
+        {
+            "item": "skyfabricator:woodchips"
+        },
+        {
+            "item": "skyfabricator:woodchips"
+        }
+    ],
+    "result": {
+        "item": "minecraft:paper",
+        "count": 1
+    }
+}

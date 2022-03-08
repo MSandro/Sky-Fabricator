@@ -1,0 +1,15 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "#"
+    ],
+    "key": {
+        "#": {
+            "item": "skyfabricator:charcoal_block"
+        }
+    },
+    "result": {
+        "item": "minecraft:charcoal",
+        "count": 9
+    }
+}

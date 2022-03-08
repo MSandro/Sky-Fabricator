@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+      "cc",
+      "cc"
+  ],
+  "key": {
+      "c": {
+          "item": "skyfabricator:pebble"
+      }
+  },
+  "result": {
+      "item": "minecraft:cobblestone",
+      "count": 1
+  }
+}

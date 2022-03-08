@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "facing=north": { "model": "skyfabricator:block/kiln" },
+        "facing=south": { "model": "skyfabricator:block/kiln", "y": 180 },
+        "facing=west":  { "model": "skyfabricator:block/kiln", "y": 270 },
+        "facing=east":  { "model": "skyfabricator:block/kiln", "y": 90 }
+    }
+}

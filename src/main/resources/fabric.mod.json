@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "id": "skyfabricator",
+  "version": "${version}",
+
+  "name": "Sky Fabricator",
+  "description": "Wooden Cauldron, Hammers and more",
+  "authors": [
+    "MSandro"
+  ],
+
+  "license": "LGPLv3",
+  "icon": "assets/skyfabricator/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.msandro.skyfabricator.Skyfabricator"
+    ],
+    "client": [
+      "com.msandro.skyfabricator.ClientMod"
+    ]
+  },
+  
+  "depends": {
+    "fabricloader": ">=0.12",
+    "fabric": "*"
+  },
+
+  "mixins": [
+    "skyfabricator.mixins.json"
+  ]
+}

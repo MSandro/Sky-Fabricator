@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:stone",
+    "minecraft:cobblestone",
+    "minecraft:sand",
+    "minecraft:red_sand",
+    "minecraft:gravel",
+    "minecraft:acacia_log",
+    "minecraft:oak_log",
+    "minecraft:spruce_log",
+    "minecraft:dark_oak_log",
+    "minecraft:jungle_log",
+    "minecraft:grass_block",
+    "minecraft:podzol",
+    "minecraft:quartz_block",
+    "minecraft:netherrack",
+    "minecraft:coal_block",
+    "skyfabricator:charcoal_block"
+  ]
+}
