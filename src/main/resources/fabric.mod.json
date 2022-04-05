@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "id": "skyutils",
+  "version": "${version}",
+  "name": "Sky Fabricator",
+  "description": "Sky utilities",
+  "authors": [
+    "nicguzzo",
+    "MSandro"
+  ],
+  "contact": {
+    "homepage": "",
+    "sources": ""
+  },
+  "license": "GPL3",
+  "icon": "assets/skyutils/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.nicguzzo.SkyutilsMod"
+    ],
+    "client": [
+      "net.nicguzzo.SkyutilsClientMod"
+    ]
+  },
+  "mixins": [
+    "skyutils.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.11.3",
+    "fabric": "*",
+    "minecraft": "1.17.x",
+    "java": ">=16"
+  },
+  "accessWidener": "skyutils.accesswidener"
+}

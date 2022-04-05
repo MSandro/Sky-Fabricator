@@ -1,0 +1,24 @@
+{
+  "required": true,
+  "package": "net.nicguzzo.mixin",
+  "compatibilityLevel": "JAVA_16",
+  "minVersion": "0.8",
+  "mixins": [
+    "BlockMixin",
+    "ComposterMixin",
+    "NetherMixin",
+    "ChunkGeneratorSettingsMixin",
+    "DefaultBiomeFeaturesMixin"
+  ],
+  "server": [
+    "GeneratorOptionsMixin"
+  ],
+  "client": [
+    "GeneratorTypeAccessor",
+    "GeneratorTypeMixin",
+    "GeneratorOptionsMixin2"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
