@@ -6,3 +6,4 @@
 * charcoal block.
  
 This Mod was highly inspirated of the Mod Sky Utils by nicguzzo
+https://github.com/nicguzzo/skyutils/tree/fix-nether-generation-on-non-skyblock-worlds
