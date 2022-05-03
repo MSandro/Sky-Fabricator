@@ -7,7 +7,6 @@ import com.msandro.skyfabricator.block.kiln.KilnBlockEntity;
 import com.msandro.skyfabricator.block.kiln.KilnScreenHandler;
 import com.msandro.skyfabricator.item.Crucible;
 import com.msandro.skyfabricator.item.Hammer;
-import com.msandro.skyfabricator.item.Crook;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.fabricmc.fabric.api.screenhandler.v1.ScreenHandlerRegistry;
@@ -39,8 +38,6 @@ public class ModRegistry {
 			new Item.Settings().group(ItemGroup.MISC).maxCount(1));
 	public static final Crucible LAVA_CRUCIBLE = new Crucible(Fluids.LAVA,
 			new Item.Settings().group(ItemGroup.MISC).maxCount(1));
-	public static final Crook WOODEN_CROOK = new Crook(ToolMaterials.WOOD, 6, -2.8F,
-			(new Item.Settings()).group(ItemGroup.TOOLS));
 	public static final Hammer WOODEN_HAMMER = new Hammer(ToolMaterials.WOOD, 6, -2.8F,
 			(new Item.Settings()).group(ItemGroup.TOOLS));
 	public static final Hammer STONE_HAMMER = new Hammer(ToolMaterials.STONE, 6, -2.8F,
@@ -72,7 +69,6 @@ public class ModRegistry {
 	public static void init() {
 
 		// items
-		Registry.register(Registry.ITEM, Skyfabricator.id("wooden_crook"), WOODEN_CROOK);
 		Registry.register(Registry.ITEM, Skyfabricator.id("wooden_hammer"), WOODEN_HAMMER);
 		Registry.register(Registry.ITEM, Skyfabricator.id("stone_hammer"), STONE_HAMMER);
 		Registry.register(Registry.ITEM, Skyfabricator.id("iron_hammer"), IRON_HAMMER);

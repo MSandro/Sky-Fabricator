@@ -15,5 +15,6 @@
   "item.skyfabricator.kiln": "Kiln",
   "block.skyfabricator.kiln": "Kiln",
   "block.skyfabricator.charcoal_block": "Charcoal Block",
-  "block.skyfabricator.wooden_cauldron": "Wooden Cauldron"
+  "block.skyfabricator.wooden_cauldron": "Wooden Cauldron",
+  "item.skyfabricator.wooden_crook": "Wooden Crook"
 }

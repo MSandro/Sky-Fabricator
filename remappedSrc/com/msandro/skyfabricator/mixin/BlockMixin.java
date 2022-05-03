@@ -1,6 +1,5 @@
 package com.msandro.skyfabricator.mixin;
 
-import com.msandro.skyfabricator.item.Crook;
 import com.msandro.skyfabricator.item.Hammer;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -23,11 +22,6 @@ public abstract class BlockMixin {
     public void afterBreak(World world, PlayerEntity player, BlockPos pos, BlockState state, BlockEntity blockEntity, ItemStack stack,CallbackInfo info) {
         if(stack.getItem() instanceof Hammer){
             if(Hammer.remap_drop(world,player,pos,state)){
-                info.cancel();
-            }
-        }
-        if(stack.getItem() instanceof Crook){
-            if(Crook.remap_drop(world,player,pos,state)){
                 info.cancel();
             }
         }
