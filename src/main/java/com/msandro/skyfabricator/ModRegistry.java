@@ -39,17 +39,25 @@ public class ModRegistry {
 			new Item.Settings().group(ItemGroup.MISC).maxCount(1));
 	public static final Crucible LAVA_CRUCIBLE = new Crucible(Fluids.LAVA,
 			new Item.Settings().group(ItemGroup.MISC).maxCount(1));
-	public static final Crook WOODEN_CROOK = new Crook(ToolMaterials.WOOD, 6, -2.8F,
+	public static final Crook WOODEN_CROOK = new Crook(ToolMaterials.WOOD, 0, -2.8F,
 			(new Item.Settings()).group(ItemGroup.TOOLS));
-	public static final Hammer WOODEN_HAMMER = new Hammer(ToolMaterials.WOOD, 6, -2.8F,
+	public static final Hammer WOODEN_HAMMER = new Hammer(ToolMaterials.WOOD, 5, -2.8F,
 			(new Item.Settings()).group(ItemGroup.TOOLS));
-	public static final Hammer STONE_HAMMER = new Hammer(ToolMaterials.STONE, 6, -2.8F,
+	public static final Crook STONE_CROOK = new Crook(ToolMaterials.STONE, 0, -2.8F,
 			(new Item.Settings()).group(ItemGroup.TOOLS));
-	public static final Hammer IRON_HAMMER = new Hammer(ToolMaterials.IRON, 6, -2.8F,
+	public static final Hammer STONE_HAMMER = new Hammer(ToolMaterials.STONE, 5, -2.8F,
 			(new Item.Settings()).group(ItemGroup.TOOLS));
-	public static final Hammer DIAMOND_HAMMER = new Hammer(ToolMaterials.DIAMOND, 6, -2.8F,
+	public static final Crook IRON_CROOK = new Crook(ToolMaterials.IRON, 0, -2.8F,
 			(new Item.Settings()).group(ItemGroup.TOOLS));
-	public static final Hammer NETHERITE_HAMMER = new Hammer(ToolMaterials.NETHERITE, 6, -2.8F,
+	public static final Hammer IRON_HAMMER = new Hammer(ToolMaterials.IRON, 5, -2.8F,
+			(new Item.Settings()).group(ItemGroup.TOOLS));
+	public static final Crook DIAMOND_CROOK = new Crook(ToolMaterials.DIAMOND, 0, -2.8F,
+			(new Item.Settings()).group(ItemGroup.TOOLS));
+	public static final Hammer DIAMOND_HAMMER = new Hammer(ToolMaterials.DIAMOND, 5, -2.8F,
+			(new Item.Settings()).group(ItemGroup.TOOLS));
+	public static final Crook NETHERITE_CROOK = new Crook(ToolMaterials.NETHERITE, 0, -2.8F,
+			(new Item.Settings()).group(ItemGroup.TOOLS));
+	public static final Hammer NETHERITE_HAMMER = new Hammer(ToolMaterials.NETHERITE, 5, -2.8F,
 			(new Item.Settings()).group(ItemGroup.TOOLS));
 
 	// KILN
@@ -74,9 +82,13 @@ public class ModRegistry {
 		// items
 		Registry.register(Registry.ITEM, Skyfabricator.id("wooden_crook"), WOODEN_CROOK);
 		Registry.register(Registry.ITEM, Skyfabricator.id("wooden_hammer"), WOODEN_HAMMER);
+		Registry.register(Registry.ITEM, Skyfabricator.id("stone_crook"), STONE_CROOK);
 		Registry.register(Registry.ITEM, Skyfabricator.id("stone_hammer"), STONE_HAMMER);
+		Registry.register(Registry.ITEM, Skyfabricator.id("iron_crook"), IRON_CROOK);
 		Registry.register(Registry.ITEM, Skyfabricator.id("iron_hammer"), IRON_HAMMER);
+		Registry.register(Registry.ITEM, Skyfabricator.id("diamond_crook"), DIAMOND_CROOK);
 		Registry.register(Registry.ITEM, Skyfabricator.id("diamond_hammer"), DIAMOND_HAMMER);
+		Registry.register(Registry.ITEM, Skyfabricator.id("netherite_crook"), NETHERITE_CROOK);
 		Registry.register(Registry.ITEM, Skyfabricator.id("netherite_hammer"), NETHERITE_HAMMER);
 		Registry.register(Registry.ITEM, Skyfabricator.id("woodchips"), WOODCHIPS);
 		Registry.register(Registry.ITEM, Skyfabricator.id("pebble"), PEBBLE);

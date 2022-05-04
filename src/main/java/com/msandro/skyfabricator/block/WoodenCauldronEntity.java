@@ -64,6 +64,8 @@ public class WoodenCauldronEntity extends BlockEntity {
             }
             if (biome.value().getPrecipitation() == Biome.Precipitation.RAIN && raining) {
                 time_limit = (int) (time_limit * 0.2);
+            } else {
+                return;
             }
 
             int d = time_limit / 7;

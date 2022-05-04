@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "skyfabricator:wooden_crook",
+    "skyfabricator:stone_crook",
+    "skyfabricator:iron_crook",
+    "skyfabricator:diamond_crook",
+    "skyfabricator:netherite_crook"
+  ]
+}

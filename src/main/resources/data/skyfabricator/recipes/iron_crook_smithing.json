@@ -1,0 +1,12 @@
+{
+  "type": "smithing",
+  "base": {
+    "item": "skyfabricator:wooden_crook"
+  },
+  "addition": {
+    "tag": "c:iron_ingots"
+  },
+  "result": {
+    "item": "skyfabricator:iron_crook"
+  }
+}

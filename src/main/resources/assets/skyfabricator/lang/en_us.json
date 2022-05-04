@@ -16,5 +16,9 @@
   "block.skyfabricator.kiln": "Kiln",
   "block.skyfabricator.charcoal_block": "Charcoal Block",
   "block.skyfabricator.wooden_cauldron": "Wooden Cauldron",
-  "item.skyfabricator.wooden_crook": "Wooden Crook"
+  "item.skyfabricator.wooden_crook": "Wooden Crook",
+  "item.skyfabricator.stone_crook": "Stone Crook",
+  "item.skyfabricator.iron_crook": "Iron Crook",
+  "item.skyfabricator.diamond_crook": "Diamond Crook",
+  "item.skyfabricator.netherite_crook": "Netherite Crook"
 }

@@ -1,0 +1,12 @@
+{
+  "type": "smithing",
+  "base": {
+    "item": "skyfabricator:wooden_crook"
+  },
+  "addition": {
+    "tag": "c:diamonds"
+  },
+  "result": {
+    "item": "skyfabricator:diamond_crook"
+  }
+}
