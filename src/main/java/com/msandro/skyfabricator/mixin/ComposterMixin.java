@@ -35,7 +35,6 @@ public abstract class ComposterMixin {
   public void onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit,
     CallbackInfoReturnable<ActionResult> info) {
     int i = (Integer) state.get(ComposterBlock.LEVEL);
-    System.out.println("composter on use level: " + i);
     ItemStack itemStack = player.getStackInHand(hand);
     if (i < 8 && ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.containsKey(itemStack.getItem())) {
       if (i < 7 && !world.isClient) {
@@ -54,7 +53,7 @@ public abstract class ComposterMixin {
         double e = (double) (world.random.nextFloat() * 0.7F) + 0.06000000238418579D + 0.6D;
         double g = (double) (world.random.nextFloat() * 0.7F) + 0.15000000596046448D;
         ItemEntity itemEntity = new ItemEntity(world, (double) pos.getX() + d, (double) pos.getY() + e,
-            (double) pos.getZ() + g, new ItemStack(Items.GRASS_BLOCK));
+            (double) pos.getZ() + g, new ItemStack(Items.DIRT));
         itemEntity.setToDefaultPickupDelay();
         world.spawnEntity(itemEntity);
       }
@@ -76,7 +75,7 @@ public abstract class ComposterMixin {
     int i = (Integer)state.get(ComposterBlock.LEVEL);
     SidedInventory ret;
     if (i == 8) {
-      ret = new Composter.FullComposterInventory(state, world, pos, new ItemStack(Items.GRASS_BLOCK));
+      ret = new Composter.FullComposterInventory(state, world, pos, new ItemStack(Items.DIRT));
     } else {
       ret = (i < 7 ? new Composter.ComposterInventory(state, world, pos) : new Composter.DummyInventory());
     }
