@@ -67,6 +67,9 @@ public class Hammer extends MiningToolItem {
             stack = new ItemStack(ModRegistry.WOODCHIPS, (int) chance);
         } else if (path.equals("dirt")) {
             stack = new ItemStack(ModRegistry.PEBBLE, (int) chance + 3);
+            if (world.random.nextFloat() < 0.25 * chance) {
+                stack2 = new ItemStack(Items.WHEAT_SEEDS, (int) chance);
+            }
         } else if (path.equals("podzol")) {
             stack = new ItemStack(ModRegistry.PEBBLE, (int) chance + 3);
             if (world.random.nextFloat() < 0.2) {

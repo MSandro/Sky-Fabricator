@@ -2,11 +2,15 @@ package com.msandro.skyfabricator.mixin;
 
 import net.minecraft.inventory.SidedInventory;
 import com.msandro.skyfabricator.composter.Composter;
+import net.minecraft.item.ItemConvertible;
+import org.apache.commons.lang3.NotImplementedException;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.gen.Invoker;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import net.minecraft.block.BlockState;
@@ -27,61 +31,69 @@ import net.minecraft.world.WorldAccess;
 @Mixin(ComposterBlock.class)
 public abstract class ComposterMixin {
 
-  @Shadow
-  native private static BlockState emptyComposter(BlockState state, WorldAccess world, BlockPos pos);
+    @Invoker
+    private static void invokeRegisterCompostableItem(float levelIncreaseChance, ItemConvertible item)    {
+        throw new NotImplementedException("The invoke failed.");
+    }
 
-  @Inject(at = @At("HEAD"), method = "onUse", cancellable = true)
+    @Shadow
+    native private static BlockState emptyComposter(BlockState state, WorldAccess world, BlockPos pos);
 
-  public void onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit,
-    CallbackInfoReturnable<ActionResult> info) {
-    int i = (Integer) state.get(ComposterBlock.LEVEL);
-    ItemStack itemStack = player.getStackInHand(hand);
-    if (i < 8 && ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.containsKey(itemStack.getItem())) {
-      if (i < 7 && !world.isClient) {
-        boolean bl = Composter.addToComposter(i, state, world, pos, itemStack);
-        world.syncWorldEvent(1500, pos, bl ? 1 : 0);
-        if (!player.getAbilities().creativeMode) {
-          itemStack.decrement(1);
+    @Inject(at = @At("HEAD"), method = "onUse", cancellable = true)
+
+    public void onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit,
+                      CallbackInfoReturnable<ActionResult> info) {
+        int i = (Integer) state.get(ComposterBlock.LEVEL);
+        ItemStack itemStack = player.getStackInHand(hand);
+        if (i < 8 && ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.containsKey(itemStack.getItem())) {
+            if (i < 7 && !world.isClient) {
+                boolean bl = Composter.addToComposter(i, state, world, pos, itemStack);
+                world.syncWorldEvent(1500, pos, bl ? 1 : 0);
+                if (!player.getAbilities().creativeMode) {
+                    itemStack.decrement(1);
+                }
+            }
+
+            info.setReturnValue(ActionResult.SUCCESS);
+        } else if (i == 8) {
+            if (!world.isClient) {
+
+                double d = (double) (world.random.nextFloat() * 0.7F) + 0.15000000596046448D;
+                double e = (double) (world.random.nextFloat() * 0.7F) + 0.06000000238418579D + 0.6D;
+                double g = (double) (world.random.nextFloat() * 0.7F) + 0.15000000596046448D;
+                ItemEntity itemEntity = new ItemEntity(world, (double) pos.getX() + d, (double) pos.getY() + e,
+                        (double) pos.getZ() + g, new ItemStack(Items.DIRT));
+                itemEntity.setToDefaultPickupDelay();
+                world.spawnEntity(itemEntity);
+            }
+
+            emptyComposter(state, world, pos);
+            world.playSound((PlayerEntity) null, pos, SoundEvents.BLOCK_COMPOSTER_EMPTY, SoundCategory.BLOCKS, 1.0F, 1.0F);
+
+            info.setReturnValue(ActionResult.SUCCESS);
+        } else {
+
+            info.setReturnValue(ActionResult.PASS);
         }
-      }
-
-      info.setReturnValue(ActionResult.SUCCESS);
-    } else if (i == 8) {
-      if (!world.isClient) {
-
-        double d = (double) (world.random.nextFloat() * 0.7F) + 0.15000000596046448D;
-        double e = (double) (world.random.nextFloat() * 0.7F) + 0.06000000238418579D + 0.6D;
-        double g = (double) (world.random.nextFloat() * 0.7F) + 0.15000000596046448D;
-        ItemEntity itemEntity = new ItemEntity(world, (double) pos.getX() + d, (double) pos.getY() + e,
-            (double) pos.getZ() + g, new ItemStack(Items.DIRT));
-        itemEntity.setToDefaultPickupDelay();
-        world.spawnEntity(itemEntity);
-      }
-
-      emptyComposter(state, world, pos);
-      world.playSound((PlayerEntity) null, pos, SoundEvents.BLOCK_COMPOSTER_EMPTY, SoundCategory.BLOCKS, 1.0F, 1.0F);
-
-      info.setReturnValue(ActionResult.SUCCESS);
-    } else {
-
-      info.setReturnValue(ActionResult.PASS);
+        info.cancel();
+        return;
     }
-    info.cancel();
-    return;
-  }
 
-  @Inject(at = @At("HEAD"), method = "getInventory", cancellable = true)
-  public void getInventory(BlockState state, WorldAccess world, BlockPos pos, CallbackInfoReturnable<SidedInventory> info) {
-    int i = (Integer)state.get(ComposterBlock.LEVEL);
-    SidedInventory ret;
-    if (i == 8) {
-      ret = new Composter.FullComposterInventory(state, world, pos, new ItemStack(Items.DIRT));
-    } else {
-      ret = (i < 7 ? new Composter.ComposterInventory(state, world, pos) : new Composter.DummyInventory());
+    @Inject(at = @At("HEAD"), method = "getInventory", cancellable = true)
+    public void getInventory(BlockState state, WorldAccess world, BlockPos pos, CallbackInfoReturnable<SidedInventory> info) {
+        int i = (Integer)state.get(ComposterBlock.LEVEL);
+        SidedInventory ret;
+        if (i == 8) {
+            ret = new Composter.FullComposterInventory(state, world, pos, new ItemStack(Items.DIRT));
+        } else {
+            ret = (i < 7 ? new Composter.ComposterInventory(state, world, pos) : new Composter.DummyInventory());
+        }
+        info.setReturnValue(ret);
+        return;
     }
-    info.setReturnValue(ret);
-    return;
-  }
 
-
+    @Inject(at = @At("HEAD"), method = "registerDefaultCompostableItems()V")
+    private static void injectRegisterDefaultCompostableItems(CallbackInfo info) {
+        ComposterMixin.invokeRegisterCompostableItem(0.3f, Items.ROTTEN_FLESH);
+    }
 }

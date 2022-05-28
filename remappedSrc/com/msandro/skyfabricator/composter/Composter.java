@@ -13,6 +13,7 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldEvents;
 import net.minecraft.world.tick.OrderedTick;
+import com.msandro.skyfabricator.mixin.ComposterMixin;
 import org.jetbrains.annotations.Nullable;
 
 public class Composter {
@@ -73,7 +74,7 @@ public class Composter {
         }
 
         public boolean canExtract(int slot, ItemStack stack, Direction dir) {
-            return !this.dirty && dir == Direction.DOWN && stack.isOf(Items.DIRT);
+            return !this.dirty && dir == Direction.DOWN && stack.isOf(Items.GRASS_BLOCK);
         }
 
         public void markDirty() {

@@ -5,6 +5,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
 import net.minecraft.util.registry.RegistryEntry;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
@@ -16,14 +17,6 @@ public class WoodenCauldronEntity extends BlockEntity {
 
     public WoodenCauldronEntity(BlockPos pos, BlockState state) {
         super(ModRegistry.CONDENSER_ENTITY, pos, state);
-    }
-
-    public int getLevel() {
-        return level;
-    }
-
-    public int getTime() {
-        return time;
     }
 
     public void incLevel() {
@@ -71,13 +64,16 @@ public class WoodenCauldronEntity extends BlockEntity {
             }
             if (biome.value().getPrecipitation() == Biome.Precipitation.RAIN && raining) {
                 time_limit = (int) (time_limit * 0.2);
+            } else {
+                return;
             }
 
             int d = time_limit / 7;
             WoodenCauldronBlock block = (WoodenCauldronBlock) state.getBlock();
-            if (blockEntity.getTime() > time_limit) {
+            if (blockEntity.time > time_limit) {
                 blockEntity.setTime(0);
-                if (blockEntity.getTime() % d == 0 && blockEntity.getLevel() < 7 && world.isSkyVisibleAllowingSea(pos)) {
+                boolean visible = world.isSkyVisible(pos.offset(Direction.Axis.Y, 1));
+                if (blockEntity.time % d == 0 && blockEntity.level < 7 && visible) {
                     blockEntity.incLevel();
                     block.incLevel(world, pos, state);
                 }
